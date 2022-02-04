@@ -12,7 +12,7 @@ input.onButtonPressed(Button.AB, function () {
 input.onButtonPressed(Button.B, function () {
     guess += 10
     if (guess > 100) {
-    	
+        guess += -100
     }
     basic.showNumber(guess)
     check_answer()
