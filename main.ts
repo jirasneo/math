@@ -1,9 +1,10 @@
 input.onButtonPressed(Button.A, function () {
     guess += 1
     if (guess > 100) {
-        sprite += -100
+        guess += -100
     }
     basic.showNumber(guess)
+    check_answer()
 })
 input.onButtonPressed(Button.AB, function () {
     guess = 1
@@ -11,9 +12,10 @@ input.onButtonPressed(Button.AB, function () {
 input.onButtonPressed(Button.B, function () {
     guess += 10
     if (guess > 100) {
-        sprite += -100
+    	
     }
     basic.showNumber(guess)
+    check_answer()
 })
 input.onGesture(Gesture.Shake, function () {
     basic.showNumber(answer)
@@ -21,12 +23,7 @@ input.onGesture(Gesture.Shake, function () {
     basic.pause(3000)
     basic.clearScreen()
 })
-let sprite = 0
-let guess = 0
-let answer = 0
-answer = randint(1, 100)
-guess = 0
-basic.forever(function () {
+function check_answer () {
     if (guess == answer) {
         basic.showLeds(`
             . . . . #
@@ -44,4 +41,8 @@ basic.forever(function () {
     }
     basic.pause(3000)
     basic.clearScreen()
-})
+}
+let guess = 0
+let answer = 0
+answer = randint(1, 100)
+guess = 0
